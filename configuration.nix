@@ -3,7 +3,7 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
     ];
 
@@ -35,18 +35,13 @@
 
   # X11
   services.xserver.enable = true;
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "us";
-    xkbVariant = "";
   };
 
   # DM & DE & WM
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
 
   # Input Method
   i18n.inputMethod = {
@@ -76,8 +71,8 @@
     shell = pkgs.zsh;
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-    kdePackages.kate
-    kdePackages.dolphin
+     kdePackages.kate
+     kdePackages.dolphin
     ];
   };
 
@@ -86,7 +81,6 @@
     enable = true;
     powerOnBoot = false;
   };
-  services.printing.enable = true;
 
   # Display
     hardware.graphics = {
@@ -107,10 +101,9 @@
 
   # Packages
   nixpkgs.config.allowUnfree = true;
-  services.flatpak.enable = true;
   environment.systemPackages = with pkgs; [
-    home-manager waybar fuzzel grimblast dunst zsh kitty starship wireplumber wget git p7zip unrar neofetch neovim
-    mpv obs-studio gimp xclicker tor-browser protonvpn-gui vesktop element-desktop libreoffice prismlauncher mangohud
+    home-manager starship zsh wget git p7zip unrar neofetch mpv obs-studio gimp xclicker
+    tor-browser protonvpn-gui vesktop element-desktop libreoffice prismlauncher mangohud
   ];
 
   # Browser
