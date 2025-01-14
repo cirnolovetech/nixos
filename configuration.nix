@@ -102,8 +102,9 @@
   # Packages
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-    home-manager starship zsh wget git p7zip unrar neofetch mpv obs-studio gimp xclicker
-    tor-browser protonvpn-gui vesktop element-desktop libreoffice prismlauncher mangohud
+    home-manager starship zsh wget git p7zip unrar neofetch mpv obs-studio
+    tor-browser protonvpn-gui vesktop element-desktop libreoffice obsidian
+    gimp prismlauncher mangohud xclicker
   ];
 
   # Browser
