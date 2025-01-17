@@ -104,7 +104,7 @@
   environment.systemPackages = with pkgs; [
     home-manager starship zsh wget git p7zip unrar neofetch mpv obs-studio
     tor-browser protonvpn-gui vesktop element-desktop libreoffice obsidian
-    gimp prismlauncher mangohud xclicker
+    gimp krita prismlauncher mangohud xclicker
   ];
 
   # Browser
