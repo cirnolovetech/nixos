@@ -135,7 +135,7 @@
   programs.firefox.enable = true;
 
   # Flatpak
-  services.flatpak.enable = false;
+  services.flatpak.enable = true;
 
   # Packages
   nixpkgs.config.allowUnfree = true;
