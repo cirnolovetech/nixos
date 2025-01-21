@@ -49,9 +49,7 @@
     enable = true;
     fcitx5.addons = with pkgs; [
      fcitx5-gtk
-     fcitx5-qt
      fcitx5-bamboo
-     fcitx5-unikey
     ];
   };
 
@@ -68,28 +66,53 @@
 
   # Username
   users.users.cirno = {
-    isNormalUser = true;
-    description = "Cirno";
-    shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-     kdePackages.kate
-     kdePackages.dolphin
+     isNormalUser = true;
+     description = "Cirno";
+     shell = pkgs.zsh;
+     extraGroups = [ "networkmanager" "wheel" ];
+     packages = with pkgs; [
+      kdePackages.kate
+      kdePackages.dolphin
     ];
   };
 
   # Devices
   hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = false;
+     enable = true;
+     powerOnBoot = false;
   };
 
   # Display
-    hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
+  hardware.graphics = {
+     enable = true;
+     enable32Bit = true;
   };
+
+  # Graphics Driver
   services.xserver.videoDrivers = ["amdgpu"];
+
+  # Power Management
+  services.power-profiles-daemon.enable = false;
+  services.tlp = {
+     enable = true;
+     settings = {
+      # CPU
+      CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+
+      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+      CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+
+      CPU_MIN_PERF_ON_AC = 0;
+      CPU_MAX_PERF_ON_AC = 100;
+      CPU_MIN_PERF_ON_BAT = 0;
+      CPU_MAX_PERF_ON_BAT = 20;
+
+      # Battery Health
+      STOP_CHARGE_THRESH_BAT0 = 90;
+      START_CHARGE_THRESH_BAT0 = 40;
+    };
+  };
 
   # Fonts & Icons
   fonts.packages = with pkgs; [
@@ -101,33 +124,43 @@
   # Shell
   programs.zsh.enable = true;
 
-  # Packages
-  nixpkgs.config.allowUnfree = true;
-  environment.systemPackages = with pkgs; [
-    home-manager starship zsh wget git p7zip unrar neofetch mpv obs-studio
-    tor-browser protonvpn-gui vesktop element-desktop libreoffice obsidian
-    gimp krita prismlauncher mangohud xclicker
-  ];
+  # Text Editor
+  programs.neovim = {
+     enable = true;
+     defaultEditor = true;
+  };
+
 
   # Browser
   programs.firefox.enable = true;
+
+  # Flatpak
+  services.flatpak.enable = false;
+
+  # Packages
+  nixpkgs.config.allowUnfree = true;
+  environment.systemPackages = with pkgs; [
+     home-manager starship wget git p7zip unrar neofetch mpv obs-studio
+     tor-browser protonvpn-gui vesktop element-desktop libreoffice
+     obsidian gimp krita prismlauncher mangohud xclicker
+  ];
 
   # Gaming
   programs.gamemode.enable = true;
   programs.steam.gamescopeSession.enable = true;
   programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-    localNetworkGameTransfers.openFirewall = true;
+     enable = true;
+     remotePlay.openFirewall = true;
+     dedicatedServer.openFirewall = true;
+     localNetworkGameTransfers.openFirewall = true;
   };
 
-  # Features and Optimization
+  # Features & Optimization
   nix = {
-    settings.experimental-features = [ "nix-command" "flakes" ];
-    optimise.automatic = true;
-    settings.auto-optimise-store = true;
-    gc = {
+     settings.experimental-features = [ "nix-command" "flakes" ];
+     optimise.automatic = true;
+     settings.auto-optimise-store = true;
+     gc = {
       automatic = true;
       dates = "weekly";
       options = "--delete-older-than 5d";
