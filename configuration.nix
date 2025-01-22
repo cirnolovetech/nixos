@@ -130,7 +130,6 @@
      defaultEditor = true;
   };
 
-
   # Browser
   programs.firefox.enable = true;
 
@@ -140,16 +139,17 @@
   # Packages
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-     home-manager starship wget git p7zip unrar neofetch mpv obs-studio
-     tor-browser protonvpn-gui vesktop element-desktop libreoffice
-     obsidian gimp krita prismlauncher mangohud xclicker
+     home-manager starship wget git p7zip unrar mpv
+     tor-browser protonvpn-gui vesktop element-desktop
+     libreoffice obsidian gimp krita
+     prismlauncher mangohud xclicker obs-studio
   ];
 
-  # Gaming
+  # Gaming & Steam
   programs.gamemode.enable = true;
-  programs.steam.gamescopeSession.enable = true;
   programs.steam = {
      enable = true;
+     gamescopeSession.enable = true;
      remotePlay.openFirewall = true;
      dedicatedServer.openFirewall = true;
      localNetworkGameTransfers.openFirewall = true;
