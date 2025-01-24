@@ -1,10 +1,11 @@
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
     [
       ./hardware-configuration.nix
+      inputs.home-manager.nixosModules.default
     ];
 
   # Bootloader
@@ -142,7 +143,7 @@
      # Home manager
      home-manager
      # Terminal & CLI
-     kitty starship wget git p7zip unrar
+     starship wget git p7zip unrar
      # Media
      mpv
      # Internet
