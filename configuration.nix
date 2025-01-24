@@ -155,14 +155,22 @@
      prismlauncher mangohud
   ];
 
-  # Gaming & Steam
-  programs.gamemode.enable = true;
+  # Steam & Feral Game Mode
   programs.steam = {
      enable = true;
      gamescopeSession.enable = true;
      remotePlay.openFirewall = true;
      dedicatedServer.openFirewall = true;
      localNetworkGameTransfers.openFirewall = true;
+  };
+  programs.gamemode.enable = true;
+
+  # Home Manager
+  home-manager = {
+     extraSpecialArgs = {inherit inputs;};
+     users = {
+      "cirno" = import ./home.nix;
+    };
   };
 
   # Features & Optimization
