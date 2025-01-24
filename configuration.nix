@@ -114,13 +114,6 @@
     };
   };
 
-  # Fonts & Icons
-  fonts.packages = with pkgs; [
-     noto-fonts
-     noto-fonts-cjk-sans
-     noto-fonts-emoji
-  ];
-
   # Shell
   programs.zsh.enable = true;
 
@@ -129,6 +122,13 @@
      enable = true;
      defaultEditor = true;
   };
+
+  # Fonts & Icons
+  fonts.packages = with pkgs; [
+     noto-fonts
+     noto-fonts-cjk-sans
+     noto-fonts-emoji
+  ];
 
   # Browser
   programs.firefox.enable = true;
@@ -139,10 +139,20 @@
   # Packages
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-     home-manager starship wget git p7zip unrar mpv
+     # Home manager
+     home-manager
+     # Terminal & CLI
+     kitty starship wget git p7zip unrar
+     # Media
+     mpv
+     # Internet
      tor-browser protonvpn-gui vesktop element-desktop
+     # Productivity
      libreoffice obsidian gimp krita
-     prismlauncher mangohud xclicker obs-studio
+     # Tools
+     xclicker obs-studio
+     # Gaming
+     prismlauncher mangohud
   ];
 
   # Gaming & Steam
