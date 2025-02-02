@@ -12,15 +12,12 @@
 
  outputs = { self, nixpkgs, home-manager, ... }@inputs:
   let
-   system = "x86_64-linux";
-   pkgs = nixpkgs.legacyPackages.${system};
+   pkgs = nixpkgs.legacyPackages.x86_64-linux;
   in
    {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
      specialArgs = {inherit inputs;};
-     modules = [
-      ./configuration.nix
-     ];
+     modules = [ ./configuration.nix ];
     };
 
     homeConfigurations.cirno = home-manager.lib.homeManagerConfiguration {
