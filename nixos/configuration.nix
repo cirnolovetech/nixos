@@ -68,6 +68,7 @@
    enable = true;
    xwayland.enable = true;
   };
+  hyprlock.enable = true;
   waybar.enable = true;
  };
 
@@ -147,7 +148,7 @@
 
  # Fonts & Icons
  fonts.packages = with pkgs; [
-  nerdfonts
+  (nerdfonts.override { fonts = [ "FiraMono Nerd Font" ]; })
   font-awesome
   noto-fonts
   noto-fonts-cjk-sans
