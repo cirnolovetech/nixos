@@ -143,12 +143,11 @@
  environment.systemPackages = with pkgs; [
   home-manager git kitty waybar hyprcursor dunst hyprshot wl-clipboard starship pwvucontrol microfetch btop p7zip unrar
   tor-browser protonvpn-gui vesktop element-desktop gwenview mpv libreoffice obsidian gimp krita prismlauncher mangohud
-  obs-studio xclicker home-manager catppuccin-cursors papirus-nord
+  obs-studio xclicker home-manager catppuccin-cursors papirus-nord font-manager
  ];
 
  # Fonts & Icons
  fonts.packages = with pkgs; [
-  (nerdfonts.override { fonts = [ "FiraMono Nerd Font" ]; })
   font-awesome
   noto-fonts
   noto-fonts-cjk-sans
