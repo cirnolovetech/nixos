@@ -32,7 +32,9 @@
    type = "fcitx5";
    enable = true;
    fcitx5.addons = with pkgs; [
-    fcitx5-gtk
+    kdePackages.fcitx5-qt
+    fcitx5-mozc
+    fcitx5-unikey
     fcitx5-bamboo
    ];
   };
@@ -140,7 +142,7 @@
  environment.systemPackages = with pkgs; [
   home-manager git kitty waybar hyprcursor dunst hyprshot wl-clipboard starship pwvucontrol microfetch btop p7zip unrar
   tor-browser protonvpn-gui vesktop element-desktop gwenview mpv libreoffice obsidian gimp krita prismlauncher mangohud
-  obs-studio xclicker home-manager papirus-nord
+  obs-studio xclicker home-manager catppuccin-cursors papirus-nord
  ];
 
  # Fonts & Icons
