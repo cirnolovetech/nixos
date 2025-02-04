@@ -33,6 +33,7 @@
    enable = true;
    fcitx5.addons = with pkgs; [
     kdePackages.fcitx5-qt
+    fcitx5-nord
     fcitx5-mozc
     fcitx5-unikey
     fcitx5-bamboo
@@ -61,8 +62,10 @@
  };
 
  # WM
- services.displayManager.sddm.enable = true;
- services.desktopManager.plasma6.enable = true;
+ services = {
+ displayManager.sddm.enable = true;
+ hypridle.enable = true;
+ };
  programs = {
   hyprland = {
    enable = true;
@@ -76,6 +79,7 @@
  security.rtkit.enable = true;
  services.pipewire = {
   enable = true;
+  wireplumber.enable = true;
   pulse.enable = true;
   jack.enable = true;
   alsa.enable = true;
@@ -88,10 +92,7 @@
   description = "Cirno";
   shell = pkgs.zsh;
   extraGroups = [ "networkmanager" "wheel" ];
-  packages = with pkgs; [
-   kdePackages.kate
-   kdePackages.dolphin
-  ];
+  packages = with pkgs; [ kdePackages.dolphin ];
  };
 
  # Hardware
@@ -128,6 +129,9 @@
    enable = true;
    defaultEditor = true;
   };
+  yazi = {
+   enable = true;
+  };
   gamemode.enable = true;
   steam = {
    enable = true;
@@ -141,9 +145,8 @@
  # Packages
  nixpkgs.config.allowUnfree = true;
  environment.systemPackages = with pkgs; [
-  home-manager git kitty waybar hyprcursor dunst hyprshot wl-clipboard starship pwvucontrol microfetch btop p7zip unrar
-  tor-browser protonvpn-gui vesktop element-desktop gwenview mpv libreoffice obsidian gimp krita prismlauncher mangohud
-  obs-studio xclicker home-manager catppuccin-cursors papirus-nord font-manager
+  home-manager dunst git kitty waybar hyprcursor hyprshot hyprpaper wl-clipboard starship pwvucontrol microfetch btop p7zip unrar wofi font-manager
+  tor-browser vesktop element-desktop playerctl brightnessctl gwenview mpv libreoffice obsidian gimp krita prismlauncher mangohud obs-studio xclicker
  ];
 
  # Fonts & Icons
