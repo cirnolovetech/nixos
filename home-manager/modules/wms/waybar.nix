@@ -5,41 +5,31 @@
    mainBar = {
     layer = "top";
     position = "top";
-    margin = "9 13 -10 18";
+    margin = "5 5 -5 5";
 
-    modules-left = ["hyprland/workspaces" "hyprland/language" "keyboard-state" "hyprland/submap"];
-    modules-center = ["clock" "custom/weather"];
-    modules-right = ["wireplumber" "backlight" "battery" "tray"];
+    modules-left = [ "hyprland/workspaces" ];
+    modules-center = [ "clock" ];
+    modules-right = [ "tray" "pipewire" "battery" ];
 
  "hyprland/workspaces" = {
   disable-scroll = true;
- };
-
- "hyprland/language" = {
-  format-en = "US";
-  format-vn = "VN";
-  min-length = 5;
-  tooltip = false;
- };
-
- "keyboard-state" = {
-  #numlock = true;
-  capslock = true;
-  format = "{icon} ";
+  active-only = false;
+  all-outputs = true;
   format-icons = {
-  locked = " ";
-  unlocked = "";
+   "1" = "󱄅";
+   "2" = "󰈹";
+   "3" = "";
+   "4" = "";
+   "5" = "";
+   "6" = "󰊖";
   };
  };
 
  "clock" = {
-  # timezone = "Vietnam/Saigon";
-  tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-  format = "{:%a; %d %b, %I:%M %p}";
+  format = "{:%H:%M:%S}";
  };
 
  "wireplumber" = {
-  # scroll-step = 1; # %, can be a float
   reverse-scrolling = 1;
   format = "{volume}% {icon} {format_source}";
   format-bluetooth = "{volume}% {icon} {format_source}";
@@ -62,22 +52,21 @@
 
  "backlight" = {
   device = "intel_backlight";
-  format = "{percent}% {icon}";
+  format = "{percent} {icon}";
   format-icons = [""];
   min-length = 7;
  };
 
  battery = {
-  states = {
-   warning = 30;
-   critical = 15;
-  };
   format = "{capacity}% {icon}";
-  format-charging = "{capacity}% ";
-  format-plugged = "{capacity}% ";
   format-alt = "{time} {icon}";
-  format-icons = ["" "" "" "" "" "" "" "" "" ""];
-  on-update = "$HOME/.config/waybar/scripts/check_battery.sh";
+  format-charging = "{capacity}% 󱐋";
+  format-icons = [ "" "" "" "" "" ];
+  format-plugged = "{capacity}% 󱐋";
+  states = {
+   critical = 15;
+   warning = 30;
+  };
  };
 
   tray = {
@@ -93,7 +82,7 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: JetBrains Mono;
+    font-family: Fira Mono Nerd Font;
     font-weight: bold;
     min-height: 20px;
 }
@@ -110,7 +99,7 @@ window#waybar.hidden {
     margin-right: 8px;
     border-radius: 10px;
     transition: none;
-    background: #383c4a;
+    background: #1d1d1f;
 }
 
 #workspaces button {
@@ -131,7 +120,7 @@ window#waybar.hidden {
     box-shadow: inherit;
     text-shadow: inherit;
     border-radius: inherit;
-    color: #383c4a;
+    color: #1d1d1f;
     background: #7c818c;
 }
 
@@ -141,79 +130,26 @@ window#waybar.hidden {
     border-radius: inherit;
 }
 
-#language {
-    padding-left: 16px;
-    padding-right: 8px;
-    border-radius: 10px 0px 0px 10px;
-    transition: none;
-    color: #ffffff;
-    background: #383c4a;
-}
-
-#keyboard-state {
-    margin-right: 8px;
-    padding-right: 16px;
-    border-radius: 0px 10px 10px 0px;
-    transition: none;
-    color: #ffffff;
-    background: #383c4a;
-}
-
-#custom-pacman {
-    padding-left: 16px;
-    padding-right: 8px;
-    border-radius: 10px 0px 0px 10px;
-    transition: none;
-    color: #ffffff;
-    background: #383c4a;
-}
-
-#custom-mail {
-    margin-right: 8px;
-    padding-right: 16px;
-    border-radius: 0px 10px 10px 0px;
-    transition: none;
-    color: #ffffff;
-    background: #383c4a;
-}
-
-#submap {
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px;
-    transition: none;
-    color: #ffffff;
-    background: #383c4a;
-}
-
 #clock {
     padding-left: 16px;
     padding-right: 16px;
     border-radius: 10px 0px 0px 10px;
     transition: none;
     color: #ffffff;
-    background: #383c4a;
+    background: #1d1d1f;
 }
 
-#custom-weather {
-    padding-right: 16px;
-    border-radius: 0px 10px 10px 0px;
-    transition: none;
-    color: #ffffff;
-    background: #383c4a;
-}
-
-#pulseaudio {
+#wireplumber {
     margin-right: 8px;
     padding-left: 16px;
     padding-right: 16px;
     border-radius: 10px;
     transition: none;
     color: #ffffff;
-    background: #383c4a;
+    background: #1d1d1f;
 }
 
-#pulseaudio.muted {
+#wireplumber.muted {
     background-color: #90b1b1;
     color: #2a5c45;
 }
@@ -225,31 +161,7 @@ window#waybar.hidden {
     border-radius: 10px;
     transition: none;
     color: #ffffff;
-    background: #383c4a;
-}
-
-#cpu {
-    margin-right: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px;
-    transition: none;
-    color: #ffffff;
-    background: #383c4a;
-}
-
-#temperature {
-    margin-right: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px;
-    transition: none;
-    color: #ffffff;
-    background: #383c4a;
-}
-
-#temperature.critical {
-    background-color: #eb4d4b;
+    background: #1d1d1f;
 }
 
 #backlight {
@@ -259,7 +171,7 @@ window#waybar.hidden {
     border-radius: 10px;
     transition: none;
     color: #ffffff;
-    background: #383c4a;
+    background: #1d1d1f;
 }
 
 #battery {
@@ -269,7 +181,7 @@ window#waybar.hidden {
     border-radius: 10px;
     transition: none;
     color: #ffffff;
-    background: #383c4a;
+    background: #1d1d1f;
 }
 
 #battery.charging {
@@ -298,7 +210,7 @@ window#waybar.hidden {
     border-radius: 10px;
     transition: none;
     color: #ffffff;
-    background: #383c4a;
+    background: #1d1d1f;
 }
 
 @keyframes blink {

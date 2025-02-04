@@ -6,7 +6,7 @@ wayland.windowManager.hyprland = {
  settings = {
   # Monitor (Current Laptop)
   monitor = [
-   "eDP-1,1920x1080@144,auto,1.5";
+   "eDP-1,1920x1200@144, 0x0, 1.25"
   ];
 
   # Default
@@ -15,7 +15,6 @@ wayland.windowManager.hyprland = {
 
   # Autostart Applications
   exec-once = [
-   "waybar"
    "hyprpaper"
    "fcitx5"
   ];
@@ -33,8 +32,8 @@ wayland.windowManager.hyprland = {
    border_size = 2;
    resize_on_border = true;
    allow_tearing = false;
-   "col.active_border" = "rgba(29, 29, 31,)";
-   "col.inactive_border" = "rgba(3c3836ff)";
+   "col.active_border" = "rgba(358dfbff)";
+   "col.inactive_border" = "rgba(1d1d1fff)";
   };
 
   # Keyboard
@@ -53,16 +52,10 @@ wayland.windowManager.hyprland = {
 
   # Decoration
   decoration = {
-   rounding = 0;
+   rounding = 10;
    active_opacity = 1;
-   inactive_opacity = 0.5;
+   inactive_opacity = 1;
    fullscreen_opacity = 1;
-   blur = {
-    enabled = true;
-    passes = 1;
-    size = 3;
-    vibrancy = 0.1696;
-   };
   };
 
   # Animation
