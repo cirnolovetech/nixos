@@ -1,10 +1,10 @@
 {
   imports = [
-    ./git.nix
+    ./cursor.nix
+    ./cli.nix
     ./dunst.nix
-    ./starship.nix
     ./wms/hyprland.nix
     ./wms/waybar.nix
-    #./wms/hyprcursor.nix
+    #./wms/hyprlock.nix
   ];
 }

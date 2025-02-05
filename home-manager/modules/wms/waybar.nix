@@ -9,24 +9,26 @@
 
     modules-left = [ "hyprland/workspaces" ];
     modules-center = [ "clock" ];
-    modules-right = [ "tray" "pipewire" "battery" ];
+    modules-right = [ "tray" "wireplumber" "battery" ];
 
  "hyprland/workspaces" = {
   disable-scroll = true;
   active-only = false;
+  format = "{icon}";
   all-outputs = true;
   format-icons = {
-   "1" = "󱄅";
-   "2" = "󰈹";
-   "3" = "";
-   "4" = "";
+   "1" = "󰈹";
+   "2" = "󰙯";
+   "3" = "󰂺";
+   "4" = "";
    "5" = "";
    "6" = "󰊖";
   };
  };
 
  "clock" = {
-  format = "{:%H:%M:%S}";
+  format = "{:%HH:%MM}";
+  tooltip-format = " {:%a; %d %b, %I:%M %p}";
  };
 
  "wireplumber" = {
@@ -48,13 +50,6 @@
   };
   on-click = "pwvucontrol";
   min-length = 13;
- };
-
- "backlight" = {
-  device = "intel_backlight";
-  format = "{percent} {icon}";
-  format-icons = [""];
-  min-length = 7;
  };
 
  battery = {
@@ -133,7 +128,7 @@ window#waybar.hidden {
 #clock {
     padding-left: 16px;
     padding-right: 16px;
-    border-radius: 10px 0px 0px 10px;
+    border-radius: 10px 10px 10px 10px;
     transition: none;
     color: #ffffff;
     background: #1d1d1f;
@@ -155,16 +150,6 @@ window#waybar.hidden {
 }
 
 #custom-mem {
-    margin-right: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px;
-    transition: none;
-    color: #ffffff;
-    background: #1d1d1f;
-}
-
-#backlight {
     margin-right: 8px;
     padding-left: 16px;
     padding-right: 16px;

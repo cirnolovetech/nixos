@@ -1,11 +1,11 @@
 { config, ... }:
 
 {
-programs.zsh = {
- enable = true;
- enableCompletion = true;
- autosuggestion.enable = true;
- syntaxHighlighting.enable = true;
+ programs.zsh = {
+  enable = true;
+  enableCompletion = true;
+  autosuggestion.enable = true;
+  syntaxHighlighting.enable = true;
 
   shellAliases =
    let
@@ -21,18 +21,18 @@ programs.zsh = {
     ll = "ls -l";
     nv = "nvim";
     se = "sudoedit";
-    ff = "fastfetch";
+    mf = "microfetch";
    };
 
-# History
-history.size = 10000;
-history.path = "${config.xdg.dataHome}/zsh/history";
+  # History
+  history.size = 10000;
+  history.path = "${config.xdg.dataHome}/zsh/history";
 
-# Oh My Zsh
-oh-my-zsh = {
- enable = true;
- plugins = [ "git" "sudo" ];
- theme = "agnoster";
-};
+  # Oh My Zsh
+  oh-my-zsh = {
+   enable = true;
+   plugins = [ "git" "sudo" ];
+   theme = "agnoster";
   };
+ };
 }

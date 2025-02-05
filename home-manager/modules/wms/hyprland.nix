@@ -16,7 +16,7 @@ wayland.windowManager.hyprland = {
   # Autostart Applications
   exec-once = [
    "hyprpaper"
-   "fcitx5"
+   "fcitx5" 
   ];
 
   # X11 Apps No Scaling
@@ -28,7 +28,7 @@ wayland.windowManager.hyprland = {
   general = {
    layout = "master";
    gaps_in = 5;
-   gaps_out = 5;
+   gaps_out = 10;
    border_size = 2;
    resize_on_border = true;
    allow_tearing = false;
@@ -95,6 +95,7 @@ wayland.windowManager.hyprland = {
   bind = [
    # General
    "$mod, q, exec, $terminal"
+   "$mod SHIFT, exec, waybar"
    "$mod, c, killactive"
    "$mod SHIFT, c, exit"
    "$mod SHIFT, r, exec, hyprctl reload"
@@ -148,7 +149,7 @@ wayland.windowManager.hyprland = {
    "$mod, mouse:273, resizewindow"
   ];
 
-  # Multimedia + Brightness
+  # Laptop Binds P.1
   bindel = [
    ", XF86AudioRaiseVolume,  exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
    ", XF86AudioLowerVolume,  exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
@@ -158,8 +159,9 @@ wayland.windowManager.hyprland = {
    ", XF86MonBrightnessDown, exec, brightnessctl set 10%-"
   ];
 
-  # Audio Playback
+  # Laptop Binds P.2
   bindl = [
+   ",switch:Lid Switch, exec, ${lib.getExe' pkgs.procps "pidof"} hyprlock || hyprlock"
    ", XF86AudioNext,  exec, playerctl next"
    ", XF86AudioPrev,  exec, playerctl previous"
    ", XF86AudioPause, exec, playerctl play-pause"
@@ -167,7 +169,14 @@ wayland.windowManager.hyprland = {
   ];
 
    # Env var
-   #env = [];
+   env = [
+    "XDG_CURRENT_DESKTOP,Hyprland"
+    "XDG_SESSION_TYPE,wayland"
+    "XDG_SESSION_DESKTOP,Hyprland"
+    "XCURSOR_SIZE,36"
+    "QT_QPA_PLATFORM,wayland"
+    "XDG_SCREENSHOTS_DIR,~/screens"
+   ];
    };
   };
 }
