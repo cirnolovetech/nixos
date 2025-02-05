@@ -33,7 +33,7 @@
    enable = true;
    fcitx5.addons = with pkgs; [
     kdePackages.fcitx5-qt
-    fcitx5-nord
+    catppuccin-fcitx5
     fcitx5-mozc
     fcitx5-unikey
     fcitx5-bamboo
@@ -62,10 +62,12 @@
  };
 
  # WM
- services = {
- displayManager.sddm.enable = true;
- hypridle.enable = true;
- };
+ services.displayManager.sddm = {
+  enable = true;
+  theme = "catppuccin-mocha";
+  package = pkgs.kdePackages.sddm;
+  };
+ services.hypridle.enable = true;
  programs = {
   hyprland = {
    enable = true;
@@ -73,6 +75,13 @@
   };
   hyprlock.enable = true;
   waybar.enable = true;
+ };
+ 
+ # QT
+ qt = {
+  enable = true;
+  platformTheme = "qt5ct";
+  style = "kvantum";
  };
 
  # Audio
@@ -145,11 +154,59 @@
  # Packages
  nixpkgs.config.allowUnfree = true;
  environment.systemPackages = with pkgs; [
-  home-manager dunst git kitty waybar hyprcursor hyprshot hyprpaper wl-clipboard starship pwvucontrol microfetch btop p7zip unrar wofi font-manager
-  tor-browser vesktop element-desktop playerctl brightnessctl gwenview mpv libreoffice obsidian gimp krita prismlauncher mangohud obs-studio xclicker
+  # Ecosystem
+  dunst
+  wofi
+  kitty
+  hyprshot
+  hyprpaper 
+  
+  # Media - Office
+  gwenview
+  mpv
+  libreoffice
+  gimp
+  krita
+  obsidian
+
+  # Browser - Social
+  librewolf
+  tor-browser
+  vesktop
+  element-desktop
+
+  # Game
+  prismlauncher
+
+  # Tools
+  pwvucontrol
+  playerctl
+  brightnessctl
+  wl-clipboard
+  btop
+  microfetch
+  obs-studio
+  mangohud
+  xclicker
+  p7zip
+  unrar
+  font-manager
+
+  # Themes
+  papirus-icon-theme
+  catppuccin
+  catppuccin-sddm
+  catppuccin-qt5ct
+  catppuccin-kvantum
+  catppuccin-cursors
+
+  # Others 
+  home-manager
+  libsForQt5.qt5ct
+  libsForQt5.qtstyleplugin-kvantum
  ];
 
- # Fonts & Icons
+ # Fonts 
  fonts.packages = with pkgs; [
   font-awesome
   noto-fonts
