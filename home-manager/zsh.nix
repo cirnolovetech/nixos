@@ -14,9 +14,10 @@
     rb = "sudo nixos-rebuild switch --flake ${flakeDir}";
     upd = "nix flake update ${flakeDir}";
     upg = "sudo nixos-rebuild switch --upgrade --flake ${flakeDir}";
-    hms = "home-manager switch --flake ${flakeDir}";
-    conf = "nvim ${flakeDir}/nixos/configuration.nix";
-    pkgs = "nvim ${flakeDir}/nixos/packages.nix";
+    hmg = "home-manager generations";
+    hmr = "home-manager remove-generations";
+    hms = "home-manager switch";
+    conf = "sudo nvim /etc/nixos/configuration.nix";
 
     ll = "ls -l";
     nv = "nvim";

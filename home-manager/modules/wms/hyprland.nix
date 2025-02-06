@@ -6,7 +6,7 @@ wayland.windowManager.hyprland = {
  settings = {
   # Monitor (Current Laptop)
   monitor = [
-   "eDP-1,1920x1200@144, 0x0, 1.25"
+   "eDP-1,1920x1080@144, 0x0, 1.25"
   ];
 
   # Default
@@ -15,8 +15,9 @@ wayland.windowManager.hyprland = {
 
   # Autostart Applications
   exec-once = [
+   "waybar"
    "hyprpaper"
-   "fcitx5" 
+   "fcitx5"
   ];
 
   # X11 Apps No Scaling
@@ -28,12 +29,11 @@ wayland.windowManager.hyprland = {
   general = {
    layout = "master";
    gaps_in = 5;
-   gaps_out = 10;
+   gaps_out = 5;
    border_size = 2;
-   resize_on_border = true;
    allow_tearing = false;
-   "col.active_border" = "rgba(358dfbff)";
-   "col.inactive_border" = "rgba(1d1d1fff)";
+   "col.active_border" = "rgba(45acffff)";
+   "col.inactive_border" = "rgba(1d2021ff)";
   };
 
   # Keyboard
@@ -52,7 +52,7 @@ wayland.windowManager.hyprland = {
 
   # Decoration
   decoration = {
-   rounding = 10;
+   rounding = 0;
    active_opacity = 1;
    inactive_opacity = 1;
    fullscreen_opacity = 1;
@@ -95,7 +95,6 @@ wayland.windowManager.hyprland = {
   bind = [
    # General
    "$mod, q, exec, $terminal"
-   "$mod SHIFT, exec, waybar"
    "$mod, c, killactive"
    "$mod SHIFT, c, exit"
    "$mod SHIFT, r, exec, hyprctl reload"
@@ -161,7 +160,7 @@ wayland.windowManager.hyprland = {
 
   # Laptop Binds P.2
   bindl = [
-   ",switch:Lid Switch, exec, ${lib.getExe' pkgs.procps "pidof"} hyprlock || hyprlock"
+   ",switch:Lid Switch, exec, pidof hyprlock || hyprlock"
    ", XF86AudioNext,  exec, playerctl next"
    ", XF86AudioPrev,  exec, playerctl previous"
    ", XF86AudioPause, exec, playerctl play-pause"
@@ -173,7 +172,7 @@ wayland.windowManager.hyprland = {
     "XDG_CURRENT_DESKTOP,Hyprland"
     "XDG_SESSION_TYPE,wayland"
     "XDG_SESSION_DESKTOP,Hyprland"
-    "XCURSOR_SIZE,36"
+    "XCURSOR_SIZE,24"
     "QT_QPA_PLATFORM,wayland"
     "XDG_SCREENSHOTS_DIR,~/screens"
    ];

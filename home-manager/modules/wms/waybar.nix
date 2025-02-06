@@ -5,11 +5,9 @@
    mainBar = {
     layer = "top";
     position = "top";
-    margin = "5 5 -5 5";
-
-    modules-left = [ "hyprland/workspaces" ];
-    modules-center = [ "clock" ];
-    modules-right = [ "tray" "wireplumber" "battery" ];
+    modules-left = ["hyprland/workspaces"];
+    modules-center = [ ];
+    modules-right = ["tray" "pulseaudio" "battery" "clock"];
 
  "hyprland/workspaces" = {
   disable-scroll = true;
@@ -27,37 +25,30 @@
  };
 
  "clock" = {
-  format = "{:%HH:%MM}";
-  tooltip-format = " {:%a; %d %b, %I:%M %p}";
+  format = "{:%H:%M}";
+  tooltip-format = "{:%d %b | %H:%M}";
  };
 
- "wireplumber" = {
-  reverse-scrolling = 1;
-  format = "{volume}% {icon} {format_source}";
-  format-bluetooth = "{volume}% {icon} {format_source}";
-  format-bluetooth-muted = " {icon} {format_source}";
-  format-muted = " {format_source}";
-  format-source = "{volume}% ";
-  format-source-muted = "";
+ "pulseaudio" = {
+  format = "{icon} {volume}%";
+  format-bluetooth = "{icon} {volume}%{icon}";
+  format-muted = "";
   format-icons = {
-   headphone = "";
-   hands-free = "";
-   headset = "";
-   phone = "";
-   portable = "";
-   car = "";
-   default = ["" "" ""];
+   "headphones" = "";
+   "handsfree" = "";
+   "headset" = "";
+   "phone" = "";
+   "portable" = "";
+   "car" = "";
+   "default" = ["" ""];
   };
   on-click = "pwvucontrol";
-  min-length = 13;
  };
 
  battery = {
-  format = "{capacity}% {icon}";
-  format-alt = "{time} {icon}";
-  format-charging = "{capacity}% 󱐋";
+  format = "{icon} {capacity}%";
+  format-charging = "󱐋 {capacity}%";
   format-icons = [ "" "" "" "" "" ];
-  format-plugged = "{capacity}% 󱐋";
   states = {
    critical = 15;
    warning = 30;
@@ -76,133 +67,40 @@
       ''
 * {
     border: none;
-    border-radius: 0;
+    border-radius: 0px;
     font-family: Fira Mono Nerd Font;
     font-weight: bold;
-    min-height: 20px;
+    font-size: 16px;
+    min-height: 0px;
+    color: #ffffff;
 }
 
 window#waybar {
-    background: transparent;
+    background: #1d2021;
 }
 
-window#waybar.hidden {
-    opacity: 0.2;
+#workspaces button label{
+  color: #ffffff;
+  padding: 0 5px;
 }
 
-#workspaces {
-    margin-right: 8px;
-    border-radius: 10px;
-    transition: none;
-    background: #1d1d1f;
-}
-
-#workspaces button {
-    transition: none;
-    color: #7c818c;
-    background: transparent;
-    padding: 5px;
-    font-size: 18px;
-}
-
-#workspaces button.persistent {
-    color: #7c818c;
-    font-size: 12px;
-}
-
-#workspaces button:hover {
-    transition: none;
-    box-shadow: inherit;
-    text-shadow: inherit;
-    border-radius: inherit;
-    color: #1d1d1f;
-    background: #7c818c;
+#workspaces button.active label {
+  color: #ffffff;
 }
 
 #workspaces button.active {
-    background: #4e5263;
-    color: white;
-    border-radius: inherit;
+  background: #45acff;
 }
 
-#clock {
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px 10px 10px 10px;
-    transition: none;
-    color: #ffffff;
-    background: #1d1d1f;
+#clock, #battery, #pulseaudio, #tray {
+  padding: 0 10px;
+  margin: 0 0px;
+  color: #ffffff;
 }
 
-#wireplumber {
-    margin-right: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px;
-    transition: none;
-    color: #ffffff;
-    background: #1d1d1f;
-}
-
-#wireplumber.muted {
-    background-color: #90b1b1;
-    color: #2a5c45;
-}
-
-#custom-mem {
-    margin-right: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px;
-    transition: none;
-    color: #ffffff;
-    background: #1d1d1f;
-}
-
-#battery {
-    margin-right: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px;
-    transition: none;
-    color: #ffffff;
-    background: #1d1d1f;
-}
-
-#battery.charging {
-    color: #ffffff;
-    background-color: #26A65B;
-}
-
-#battery.warning:not(.charging) {
-    background-color: #ffbe61;
-    color: black;
-}
-
-#battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: #ffffff;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-#tray {
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px;
-    transition: none;
-    color: #ffffff;
-    background: #1d1d1f;
-}
-
-@keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: #000000;
-    }
+#pulseaudio.muted {
+  padding: 0 10px;
+  color: #cc241d;
 }
       '';
   };
