@@ -66,7 +66,7 @@
   enable = true;
   theme = "catppuccin-mocha";
   package = pkgs.kdePackages.sddm;
-  };
+ };
  services.hypridle.enable = true;
  programs = {
   hyprland = {
@@ -74,22 +74,13 @@
    xwayland.enable = true;
   };
   hyprlock.enable = true;
-  waybar.enable = true;
  };
  
- # QT
- qt = {
-  enable = true;
-  platformTheme = "qt5ct";
- };
-
  # Audio
  security.rtkit.enable = true;
  services.pipewire = {
   enable = true;
-  wireplumber.enable = true;
   pulse.enable = true;
-  jack.enable = true;
   alsa.enable = true;
   alsa.support32Bit = true;
  };
@@ -100,7 +91,6 @@
   description = "Cirno";
   shell = pkgs.zsh;
   extraGroups = [ "networkmanager" "wheel" ];
-  packages = with pkgs; [ kdePackages.dolphin ];
  };
 
  # Hardware
@@ -131,16 +121,25 @@
 
  # Special Programs
  programs = {
+  # Browser
   firefox.enable = true;
+
+  # Shell
   zsh.enable = true;
+
+  # File Manager
+  yazi.enable = true;
+
+  # Text Editor
   neovim = {
    enable = true;
    defaultEditor = true;
   };
-  yazi = {
-   enable = true;
-  };
+
+  # Gamemode
   gamemode.enable = true;
+
+  # Steam
   steam = {
    enable = true;
    gamescopeSession.enable = true;
@@ -153,56 +152,9 @@
  # Packages
  nixpkgs.config.allowUnfree = true;
  environment.systemPackages = with pkgs; [
-  # Ecosystem
-  dunst
-  wofi
-  kitty
-  hyprshot
-  hyprpaper 
-  
-  # Media - Office
-  gwenview
-  mpv
-  libreoffice
-  gimp
-  krita
-  obsidian
-
-  # Browser - Social
-  librewolf
-  tor-browser
-  vesktop
-  element-desktop
-
-  # Game
-  prismlauncher
-
-  # Tools
-  pwvucontrol
-  playerctl
-  brightnessctl
-  wl-clipboard
-  btop
-  microfetch
-  obs-studio
-  mangohud
-  xclicker
-  p7zip
-  unrar
-  font-manager
-
-  # Themes
-  papirus-icon-theme
-  catppuccin
-  catppuccin-sddm
-  catppuccin-qt5ct
-  catppuccin-kvantum
-  catppuccin-cursors
-
-  # Others 
-  home-manager
-  libsForQt5.qt5ct
-  libsForQt5.qtstyleplugin-kvantum
+  dunst waybar wofi kitty hyprshot hyprpaper pwvucontrol playerctl brightnessctl wl-clipboard microfetch
+  btop font-manager p7zip zip mpv obs-studio okular libreoffice gimp obsidian prismlauncher mangohud
+  librewolf tor-browser vesktop element-desktop xclicker vanilla-dmz catppuccin-sddm home-manager
  ];
 
  # Fonts 
