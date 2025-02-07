@@ -1,5 +1,5 @@
 {
-  description = "Home Manager configuration of cirno";
+  description = "Cirno Home";
 
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.

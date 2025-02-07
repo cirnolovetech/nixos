@@ -1,14 +1,13 @@
 { config, pkgs, ... }:
 
 {
-imports = [
- ./zsh.nix
- ./modules/bundle.nix
-];
+ imports = [
+  ./modules/default.nix
+ ];
 
-home = {
- username = "cirno";
- homeDirectory = "/home/cirno";
- stateVersion = "24.11";
-};
+ home = {
+  username = "cirno";
+  homeDirectory = "/home/cirno";
+  stateVersion = "24.11";
+ };
 }
