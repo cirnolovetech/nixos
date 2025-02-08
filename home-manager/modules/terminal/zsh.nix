@@ -14,7 +14,8 @@
     rb = "sudo nixos-rebuild switch";
     upg = "sudo nixos-rebuild switch --upgrade";
     hmg = "home-manager generations";
-    hmr = "home-manager remove-generations";
+    hmr = "home-manager remove generations";
+    hme = "home-manager expire-generations";
     hms = "home-manager switch";
     conf = "sudo nvim /etc/nixos/configuration.nix";
 

@@ -5,8 +5,9 @@
    mainBar = {
     layer = "top";
     position = "top";
-    modules-left = [ "hyprland/workspaces" "tray" ];
-    modules-center = [ "clock" ];
+    margin = "5 5 -5 5px";
+    modules-left = [ "clock" "tray" ];
+    modules-center = [ "hyprland/workspaces" ];
     modules-right = [ "pulseaudio" "battery" ];
  
  "hyprland/workspaces" = {
@@ -70,10 +71,9 @@ window#waybar {
 }
 
 #workspaces {
-    margin-right: 5px;
     border-radius: 5px;
     transition: none;
-    background: #5e81ac;
+    background: #1d1d1f;
 }
 
 #workspaces button {
@@ -95,7 +95,7 @@ window#waybar {
     text-shadow: inherit;
     border-radius: inherit;
     color: #eceff4;
-    background: #5e81ac;
+    background: #1d1d1f;
 }
 
 #workspaces button.active {
@@ -107,9 +107,10 @@ window#waybar {
 #clock, #battery, #pulseaudio, #tray {
     padding: 0 5px;
     margin-right: 5px;
+    margin-left: 5px;
     color: #eceff4;
     border-radius: 5px;
-    background: #5e81ac;
+    background: #1d1d1f;
 }
 
 #pulseaudio.muted {

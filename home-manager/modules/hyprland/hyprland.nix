@@ -16,7 +16,8 @@ wayland.windowManager.hyprland = {
   # Autostart Applications
   exec-once = [
    "waybar"
-   "hyprpaper"
+   "swww-daemon"
+   "sleep 1; swww img /home/cirno/.config/home-manager/modules/theme/Wallpaper.jpg"
    "fcitx5"
   ];
 
@@ -29,7 +30,7 @@ wayland.windowManager.hyprland = {
   general = {
    layout = "master";
    gaps_in = 5;
-   gaps_out = 5;
+   gaps_out = 10;
    border_size = 2;
    allow_tearing = false;
    "col.active_border" = "rgba(45acffff)";
@@ -53,9 +54,6 @@ wayland.windowManager.hyprland = {
   # Decoration
   decoration = {
    rounding = 0;
-   active_opacity = 1;
-   inactive_opacity = 1;
-   fullscreen_opacity = 1;
   };
 
   # Animation
@@ -142,13 +140,11 @@ wayland.windowManager.hyprland = {
    "SHIFT, PRINT, exec, hyprshot -m region -o ~/Pictures/Screenshots"
   ];
 
-  # Mousebinds
   bindm = [
    "$mod, mouse:272, movewindow"
    "$mod, mouse:273, resizewindow"
   ];
 
-  # Laptop Binds P.1
   bindel = [
    ", XF86AudioRaiseVolume,  exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
    ", XF86AudioLowerVolume,  exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
@@ -158,7 +154,6 @@ wayland.windowManager.hyprland = {
    ", XF86MonBrightnessDown, exec, brightnessctl set 10%-"
   ];
 
-  # Laptop Binds P.2
   bindl = [
    ", switch:Lid Switch, exec, pidof hyprlock || hyprlock"
    ", XF86AudioNext,  exec, playerctl next"
@@ -167,15 +162,14 @@ wayland.windowManager.hyprland = {
    ", XF86AudioPlay,  exec, playerctl play-pause"
   ];
 
-   # Env var
    env = [
     "XDG_CURRENT_DESKTOP,Hyprland"
     "XDG_SESSION_TYPE,wayland"
     "XDG_SESSION_DESKTOP,Hyprland"
+    "GDK_SCALE,1.25"
     "XCURSOR_SIZE,24"
     "QT_QPA_PLATFORM,wayland"
     "XDG_SCREENSHOTS_DIR,~/screens"
-    "STEAM_FORCE_DESKTOPUI_SCALING=2"
    ];
    };
   };
