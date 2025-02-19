@@ -2,81 +2,135 @@
 { config, pkgs, inputs, ... }:
 
 {
- # Nix Network
  imports = [
  ./hardware-configuration.nix
  ];
 
- # Bootloader
- boot.loader = {
-  systemd-boot.enable = true;
-  efi.canTouchEfiVariables = true;
+#    ___            __  __             __       
+#   / _ )___  ___  / /_/ /__  ___ ____/ /__ ____
+#  / _  / _ \/ _ \/ __/ / _ \/ _ `/ _  / -_) __/
+# /____/\___/\___/\__/_/\___/\_,_/\_,_/\__/_/   
+#                                               
+ boot.loader.systemd-boot.enable = true;
+ boot.loader.efi.canTouchEfiVariables = true;
+
+#   __  __           
+#  / / / /__ ___ ____
+# / /_/ (_-</ -_) __/
+# \____/___/\__/_/
+#
+ users.users.cirno = {
+  isNormalUser = true;
+  description = "Cirno";
+  shell = pkgs.zsh;
+  extraGroups = [ "networkmanager" "wheel" ];
  };
 
-# Networking
- networking = {
-  hostName = "nixos";
-  firewall = {
-   enable = true;
-  };
-  networkmanager = {
-   enable = true;
-  };
- };
+#    _  __    __                  __    _          
+#   / |/ /__ / /__    _____  ____/ /__ (_)__  ___ _
+#  /    / -_) __/ |/|/ / _ \/ __/  '_// / _ \/ _ `/
+# /_/|_/\__/\__/|__,__/\___/_/ /_/\_\/_/_//_/\_, / 
+#                                           /___/  
+ networking.hostName = "nixos";
+ networking.firewall.enable = true;
+ networking.networkmanager.enable = true;
 
- # Vietnamese
+#  _   ___     __                             
+# | | / (_)__ / /____  ___ ___ _  ___ ___ ___ 
+# | |/ / / -_) __/ _ \/ _ `/  ' \/ -_|_-</ -_)
+# |___/_/\__/\__/_//_/\_,_/_/_/_/\__/___/\__/ 
+#
  time.timeZone = "Asia/Ho_Chi_Minh";
- i18n = {
-  defaultLocale = "en_US.UTF-8";
-  inputMethod = {
+ i18n.defaultLocale = "en_US.UTF-8";
+ i18n.extraLocaleSettings = {
+  LC_ADDRESS = "vi_VN";
+  LC_IDENTIFICATION = "vi_VN";
+  LC_MEASUREMENT = "vi_VN";
+  LC_MONETARY = "vi_VN";
+  LC_NAME = "vi_VN";
+  LC_NUMERIC = "vi_VN";
+  LC_PAPER = "vi_VN";
+  LC_TELEPHONE = "vi_VN";
+  LC_TIME = "vi_VN";
+ };
+
+#    ____               __    __  ___    __  __           __
+#   /  _/__  ___  __ __/ /_  /  |/  /__ / /_/ /  ___  ___/ /
+#  _/ // _ \/ _ \/ // / __/ / /|_/ / -_) __/ _ \/ _ \/ _  / 
+# /___/_//_/ .__/\_,_/\__/ /_/  /_/\__/\__/_//_/\___/\_,_/  
+#         /_/                                             
+ i18n.inputMethod = {
    type = "fcitx5";
    enable = true;
-   fcitx5.addons = with pkgs; [
+   fcitx5 = {
+   waylandFrontend = true;
+   addons = with pkgs; [
     kdePackages.fcitx5-qt
-    catppuccin-fcitx5
-    fcitx5-mozc
-    fcitx5-unikey
     fcitx5-bamboo
    ];
   };
-  extraLocaleSettings = {
-   LC_ADDRESS = "vi_VN";
-   LC_IDENTIFICATION = "vi_VN";
-   LC_MEASUREMENT = "vi_VN";
-   LC_MONETARY = "vi_VN";
-   LC_NAME = "vi_VN";
-   LC_NUMERIC = "vi_VN";
-   LC_PAPER = "vi_VN";
-   LC_TELEPHONE = "vi_VN";
-   LC_TIME = "vi_VN";
-  };
  };
 
- # X11
- services.xserver= {
+#    __ __            __                   
+#   / // /__ ________/ /    _____ ________ 
+#  / _  / _ `/ __/ _  / |/|/ / _ `/ __/ -_)
+# /_//_/\_,_/_/  \_,_/|__,__/\_,_/_/  \__/ 
+#
+ services.xserver.videoDrivers = ["amdgpu"];
+ hardware.graphics = {
   enable = true;
-  videoDrivers = ["amdgpu"];
-  xkb = {
-   layout = "us";
+  enable32Bit = true;
+ };
+
+#    ___                       __  ___                           
+#   / _ \___ _    _____ ____  /  |/  /__ ____  ___ ____ ____ ____
+#  / ___/ _ \ |/|/ / -_) __/ / /|_/ / _ `/ _ \/ _ `/ _ `/ -_) __/
+# /_/   \___/__,__/\__/_/   /_/  /_/\_,_/_//_/\_,_/\_, /\__/_/   
+#                                              /___/          
+ services.tlp = {
+ enable = true;
+ settings = {
+  CPU_SCALING_GOVERNOR_ON_AC = "performance";
+  CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+  CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+  CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+  CPU_MIN_PERF_ON_AC = 0;
+  CPU_MAX_PERF_ON_AC = 100;
+  CPU_MIN_PERF_ON_BAT = 0;
+  CPU_MAX_PERF_ON_BAT = 20;
   };
  };
 
- # WM
+#    ___  _          __            __  ___                           
+#   / _ \(_)__ ___  / /__ ___ __  /  |/  /__ ____  ___ ____ ____ ____
+#  / // / (_-</ _ \/ / _ `/ // / / /|_/ / _ `/ _ \/ _ `/ _ `/ -_) __/
+# /____/_/___/ .__/_/\_,_/\_, / /_/  /_/\_,_/_//_/\_,_/\_, /\__/_/   
+#           /_/          /___/                      /___/          
  services.displayManager.sddm = {
   enable = true;
-  theme = "catppuccin-mocha";
+  wayland.enable = true;
+  theme = "sddm-astronaut-theme";
   package = pkgs.kdePackages.sddm;
+  extraPackages = [ pkgs.sddm-astronaut ];
  };
- services.hypridle.enable = true;
- programs = {
-  hyprland = {
+ 
+#    __ __              __             __
+#   / // /_ _____  ____/ /__ ____  ___/ /
+#  / _  / // / _ \/ __/ / _ `/ _ \/ _  / 
+# /_//_/\_, / .__/_/ /_/\_,_/_//_/\_,_/  
+#      /___/_/                            
+ programs.hyprland = {
    enable = true;
    xwayland.enable = true;
   };
-  hyprlock.enable = true;
- };
+ programs.hyprlock.enable = true;
+ services.hypridle.enable = true;
  
- # Audio
+#    ___          ___    
+#   / _ |__ _____/ (_)__ 
+#  / __ / // / _  / / _ \
+# /_/ |_\_,_/\_,_/_/\___/
+# 
  security.rtkit.enable = true;
  services.pipewire = {
   enable = true;
@@ -85,87 +139,80 @@
   alsa.support32Bit = true;
  };
 
- # User
- users.users.cirno = {
-  isNormalUser = true;
-  description = "Cirno";
-  shell = pkgs.zsh;
-  extraGroups = [ "networkmanager" "wheel" ];
- };
-
- # Hardware
- hardware.graphics = {
+#    ___                                 
+#   / _ \_______  ___ ________ ___ _  ___
+#  / ___/ __/ _ \/ _ `/ __/ _ `/  ' \(_-<
+# /_/  /_/  \___/\_, /_/  \_,_/_/_/_/___/
+#               /___/                    
+ programs.firefox = {
   enable = true;
-  enable32Bit = true;
- };
-
- # Power Management
- services = {
-  power-profiles-daemon.enable = false;
-  tlp = {
-   enable = true;
-   settings = {
-    CPU_SCALING_GOVERNOR_ON_AC = "performance";
-    CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-
-    CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
-    CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
-
-    CPU_MIN_PERF_ON_AC = 0;
-    CPU_MAX_PERF_ON_AC = 100;
-    CPU_MIN_PERF_ON_BAT = 0;
-    CPU_MAX_PERF_ON_BAT = 20;
+  package = pkgs.librewolf;
+  policies = {
+   DisableTelemetry = true;
+   DisableFirefoxStudies = true;
+   Preferences = {
+    "cookiebanners.service.mode.privateBrowsing" = 2;
+    "cookiebanners.service.mode" = 2;
+    "privacy.donottrackheader.enabled" = true;
+    "privacy.fingerprintingProtection" = true;
+    "privacy.resistFingerprinting" = true;
+    "privacy.trackingprotection.emailtracking.enabled" = true;
+    "privacy.trackingprotection.enabled" = true;
+    "privacy.trackingprotection.fingerprinting.enabled" = true;
+    "privacy.trackingprotection.socialtracking.enabled" = true;
    };
   };
  };
 
- # Special Programs
- programs = {
-  # Browser
-  firefox.enable = true;
-
-  # Shell
-  zsh.enable = true;
-
-  # File Manager
-  yazi.enable = true;
-
-  # Text Editor
-  neovim = {
+ programs.zsh.enable = true;
+ programs.yazi.enable = true;
+ programs.neovim = {
    enable = true;
    defaultEditor = true;
   };
 
-  # Gamemode
-  gamemode.enable = true;
-
-  # Steam
-  steam = {
-   enable = true;
-   gamescopeSession.enable = true;
-   remotePlay.openFirewall = true;
-   localNetworkGameTransfers.openFirewall = true;
-   dedicatedServer.openFirewall = true;
-  };
+#   _____           _          
+#  / ___/__ ___ _  (_)__  ___ _
+# / (_ / _ `/  ' \/ / _ \/ _ `/
+# \___/\_,_/_/_/_/_/_//_/\_, / 
+#                       /___/  
+ programs.gamemode.enable = true;
+ programs.steam = {
+  enable = true;
+  gamescopeSession.enable = true;
+  remotePlay.openFirewall = true;
+  localNetworkGameTransfers.openFirewall = true;
+  dedicatedServer.openFirewall = true;
  };
 
- # Packages
+#    ___           __                   
+#   / _ \___ _____/ /_____ ____ ____ ___
+#  / ___/ _ `/ __/  '_/ _ `/ _ `/ -_|_-<
+# /_/   \_,_/\__/_/\_\\_,_/\_, /\__/___/
+#                        /___/         
  nixpkgs.config.allowUnfree = true;
  environment.systemPackages = with pkgs; [
-  dunst waybar wofi kitty hyprshot hyprpaper pwvucontrol playerctl brightnessctl wl-clipboard microfetch
+  dunst waybar wofi kitty hyprshot swww pwvucontrol playerctl brightnessctl wl-clipboard xclicker
   btop font-manager p7zip zip mpv obs-studio okular libreoffice gimp obsidian prismlauncher mangohud
-  librewolf tor-browser vesktop element-desktop xclicker vanilla-dmz catppuccin-sddm home-manager
+  librewolf tor-browser vesktop element-desktop home-manager vanilla-dmz sddm-astronaut
  ];
 
- # Fonts 
+#    ____          __    
+#   / __/__  ___  / /____
+#  / _// _ \/ _ \/ __(_-<
+# /_/  \___/_//_/\__/___/
+#
  fonts.packages = with pkgs; [
-  font-awesome
   noto-fonts
   noto-fonts-cjk-sans
   noto-fonts-emoji
  ];
-
- # Features & Optimization
+ 
+#    _  ___      ____  ____
+#   / |/ (_)_ __/ __ \/ __/
+#  /    / /\ \ / /_/ /\ \  
+# /_/|_/_//_\_\\____/___/
+#
  nix = {
   settings.experimental-features = [ "nix-command" "flakes" ];
   optimise.automatic = true;
@@ -177,6 +224,5 @@
   };
  };
 
-# Version
-system.stateVersion = "24.11";
+ system.stateVersion = "24.11";
 }
