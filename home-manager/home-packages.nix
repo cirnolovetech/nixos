@@ -16,6 +16,7 @@
   obsidian
   
   # GUI Tools
+  networkmanagerapplet
   font-manager
   xclicker
   pwvucontrol
@@ -31,8 +32,11 @@
   wl-clipboard
   wl-clipboard-x11
   wl-clip-persist
+  playerctl
+  brightnessctl
 
   # Extras
   tor-browser
+  sddm-astronaut
  ];
 }
