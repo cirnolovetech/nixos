@@ -57,7 +57,7 @@
   cursor = {
    package = pkgs.capitaine-cursors-themed;
    name = "Capitaine Cursors (Gruvbox)";
-   size = 18;
+   size = 24;
   };
 
 
