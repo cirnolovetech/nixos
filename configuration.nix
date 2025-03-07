@@ -131,6 +131,7 @@
  };
 
  # Gaming
+ nixpkgs.config.allowUnfree = true;
  programs.gamemode.enable = true;
  programs.steam = {
   enable = true;
@@ -140,17 +141,9 @@
   localNetworkGameTransfers.openFirewall = true;
  };
  
- # Packages
- nixpkgs.config.allowUnfree = true;
- environment.systemPackages = with pkgs; [
-  networkmanagerapplet
-  playerctl
-  brightnessctl
-  sddm-astronaut
-  font-manager
- ];
- 
+ # Flake
  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
+ 
+ # Version
  system.stateVersion = "24.11";
 }
