@@ -4,7 +4,6 @@
 | **Window Manager** | Hyprland |
 | **Status Bar** | Waybar |
 | **Styling** | Stylix |
-| **Theme** | Custom Nord Theme |
 | **Cursor** | DMZ-White |
 | **Terminal** | Kitty |
 | **Shell** | Zsh |
@@ -20,7 +19,6 @@
 + Add a Rofi theme.
 + Add WLogout.
 + Add more packages.
-+ Completing the XDG default application config.
 
 ## Inspiration:
 [MortenMunk](https://github.com/MortenMunk/nixos), 
