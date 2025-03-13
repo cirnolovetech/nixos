@@ -24,7 +24,7 @@
 + Completing the XDG default application config.
 
 ## Inspiration:
-[MortenMunk](https://github.com/MortenMunk/nixos)
-[Atemo Cayaku](https://github.com/Atemo-C/NixOS-configuration)
-[Ampersand](https://www.youtube.com/@Ampersand-xc9jp)
-[Vimjoyer](https://www.youtube.com/@vimjoyer)
+[MortenMunk](https://github.com/MortenMunk/nixos),
+[Atemo Cayaku](https://github.com/Atemo-C/NixOS-configuration),
+[Ampersand](https://www.youtube.com/@Ampersand-xc9jp),
+[Vimjoyer](https://www.youtube.com/@vimjoyer).
