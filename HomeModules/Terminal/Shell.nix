@@ -10,7 +10,7 @@
 
   shellAliases = {
    c = "clear";
-   f = "yazi"
+   f = "yazi";
    sf = "sudo yazi";
    rswitch = "sudo nixos-rebuild switch --flake /etc/nixos#default";
    rboot = "sudo nixos-rebuild boot --flake /etc/nixos#default";
