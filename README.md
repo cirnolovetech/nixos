@@ -18,6 +18,7 @@
 
 
 ## Todo list:
++ Remodulize NixOSModules (it ugly).
 + Add a Rofi theme.
 + Add WLogout.
 + Add more packages.
