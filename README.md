@@ -1,15 +1,6 @@
 # ❄️ My NixOS config with Home Manager & Flakes ❄️
 
-
-## Todo list:
-
-+ Add a Rofi theme.
-+ Add WLogout.
-+ Add more packages.
-+ Completing the XDG default application config.
-
 ## Features 
-
 | Category         | Component     | 
 |-----------------|--------------|
 | **Window Manager** | Hyprland |
@@ -31,6 +22,12 @@
 | **Doc Reader** | Zathura |
 | **System monitor** | Btop |
 | **Sound** | Pwvucontrol + Pamixer |
+
+## Todo list:
++ Add a Rofi theme.
++ Add WLogout.
++ Add more packages.
++ Completing the XDG default application config.
 
 ## Inspiration:
 [MortenMunk](https://github.com/MortenMunk/nixos)
