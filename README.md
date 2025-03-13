@@ -1,6 +1,8 @@
 # ❄️ My NixOS config with Home Manager & Flakes ❄️
 
+
 ## Todo list:
+
 + Add a Rofi theme.
 + Add WLogout.
 + Add more packages.
