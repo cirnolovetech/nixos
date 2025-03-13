@@ -13,15 +13,9 @@
 | **Notification** | Dunst |
 | **Lock** | Hyprlock |
 | **Idle** | Hypridle |
-| **Editor** | Neovim |
 | **Display Manager** | SDDM |
-| **Office** | LibreOffice |
-| **File Manager** | Yazi |
 | **App Launcher** | Rofi Wayland |
-| **Media Player** | Mpv |
-| **Doc Reader** | Zathura |
-| **System monitor** | Btop |
-| **Sound** | Pwvucontrol + Pamixer |
+
 
 ## Todo list:
 + Add a Rofi theme.
