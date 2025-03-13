@@ -1,5 +1,3 @@
-# ❄️ My NixOS config with Home Manager & Flakes ❄️
-
 ## Features 
 | Category         | Component     | 
 |-----------------|--------------|
