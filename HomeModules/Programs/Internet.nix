@@ -44,9 +44,30 @@
      force = true;
      default = "DuckDuckGo";
      order = [ "DuckDuckGo" "Google" ];
+     engines = {
+      "Nix Packages" = {
+       urls = [{
+        template = "https://search.nixos.org/packages";
+        params = [
+         { name = "query"; value = "{searchTerms}"; }
+        ];
+       }];
+       icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+       definedAliases = [ "@np" ];
+      };
+      "Nix Options" = {
+       urls = [{
+        template = "https://search.nixos.org/options";
+        params = [
+          { name = "query"; value = "{searchTerms}"; }
+        ];
+       }];
+       definedAliases = [ "@no" ];
+      };
+     };
     };
    };
-  }; 
+  };
   policies = {
    DisableFirefoxAccounts = true;
    DisableAccounts = true;
@@ -101,15 +122,19 @@
     "jid1-MnnxcxisBPnSXQ@jetpack" = {
      install_url = "https://addons.mozilla.org/firefox/downloads/latest/privacy-badger17/latest.xpi";
      installation_mode = "force_installed";
-    }; 
+    };
    };
   }; 
  };
  
  # Chromium
  programs.chromium = {
-  enable = true; 
- }; 
+  enable = true;
+  extensions = [
+   { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; } 
+   { id = "pkehgijcmpdhfbdbbnkijodmdjhbjlgp"; }
+  ];
+ };
 
  # Extras
  home.packages = with pkgs; [
