@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
 
@@ -13,6 +13,13 @@
   onlyoffice-desktopeditors 
   libreoffice
   obsidian
+
+  (lib.hiPrio (
+    pkgs.runCommand "nvim.desktop" { } ''
+      mkdir -p $out/share/applications
+      cp ${config.programs.neovim.package}/share/applications/nvim.desktop $out/share/applications/nvim.desktop
+    ''
+  ))
  ];
 
 
