@@ -1,5 +1,4 @@
 ## Todo list:
-+ Add a Rofi theme.
 + Add WLogout.
 + Add more packages.
 
