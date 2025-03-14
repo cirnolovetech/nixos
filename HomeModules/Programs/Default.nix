@@ -1,0 +1,13 @@
+{
+
+ imports = [
+  ./Extras.nix
+  ./Games.nix
+  ./Internet.nix
+  ./Media.nix
+  ./Monitor.nix
+  ./Pasting.nix
+  ./Texting.nix
+ ];
+
+} 
