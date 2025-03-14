@@ -7,6 +7,7 @@
   ./Media.nix
   ./Monitor.nix
   ./Pasting.nix
+  ./Recording.nix
   ./Texting.nix
  ];
 

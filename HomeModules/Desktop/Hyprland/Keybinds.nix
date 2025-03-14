@@ -20,6 +20,7 @@
     "$mod SHIFT, V, exec, cliphist wipe"
     "$mod, R, exec, rofi -show drun"
     "$mod, tab, focuscurrentorlast"
+    "$mod, P, pass, class:^(com\.obsproject\.Studio)$"
     
     "$mod CTRL, h, resizeactive, -20 0"
     "$mod CTRL, l, resizeactive, 20 0"
