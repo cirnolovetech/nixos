@@ -5,7 +5,6 @@
  wayland.windowManager.hyprland = {
   extraConfig = ''
    bind = , Print, exec, grim -g "$(slurp)" - | wl-copy 
-   bind = SUPER, Print, exec, grim -g "$(slurp)" - | wl-copy
     '';
 
   settings = {
