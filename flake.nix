@@ -20,12 +20,6 @@
   system = "x86_64-linux";
   homeStateVersion = "24.11";
   user = "cirno";
-  pkgs = import nixpkgs {
-   inherit system;
-   config = {
-    allowUnfree = true;
-   };
-  };
   hosts = [
    { hostname = "amd-laptop"; stateVersion = "24.11"; }
    #{ hostname = "t420"; stateVersion = "24.11"; }
