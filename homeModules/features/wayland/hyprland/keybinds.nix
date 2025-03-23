@@ -16,7 +16,7 @@
     "$mod, E, exec, rofi -show emoji"
     "$mod, W, exec, rofi -show window"
     "$mod, M, exec, rofi -show power-menu -modi power-menu:rofi-power-menu"
-    "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+    "$mod, V, exec, rofi -modi clipboard:${pkgs.cliphist}/bin/cliphist-rofi -show clipboard"
     "$mod SHIFT, V, exec, cliphist wipe"
     "$mod, Tab, focuscurrentorlast"
 
