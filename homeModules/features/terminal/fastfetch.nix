@@ -9,7 +9,7 @@
     logo = {
      source = ./Logo.png;
      type = "kitty";
-     height = 14;
+     height = 12;
      padding = {
       top = 1;
      };
@@ -26,6 +26,7 @@
       format = "Cirno";
       keyWidth = 10;
      }
+     "break"
      {
       type = "os";
       key = " ";

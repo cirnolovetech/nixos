@@ -9,21 +9,27 @@
   settings = {
    bind = [
     "$mod, Q, exec, $terminal"
-    "$mod, E, exec, dolphin"
     "$mod, C, killactive"
-    "$mod, M, exit"
     "$mod, G, togglefloating"
     "$mod, F, fullscreen"
+    "$mod, R, exec, rofi -show drun"
+    "$mod, E, exec, rofi -show emoji"
+    "$mod, W, exec, rofi -show window"
+    "$mod, M, exec, rofi -show power-menu -modi power-menu:rofi-power-menu"
     "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
     "$mod SHIFT, V, exec, cliphist wipe"
-    "$mod, R, exec, rofi -show drun"
-    "$mod, tab, focuscurrentorlast"
-    "$mod, P, pass, class:^(com\.obsproject\.Studio)$"
+    "$mod, Tab, focuscurrentorlast"
+
+    "$mod SHIFT, P, pass, class:^(com\.obsproject\.Studio)$"
     
     "$mod CTRL, h, resizeactive, -20 0"
     "$mod CTRL, l, resizeactive, 20 0"
     "$mod CTRL, k, resizeactive, 0 -20"
     "$mod CTRL, j, resizeactive, 0 20"
+    "$mod CTRL, left, resizeactive, -20 0"
+    "$mod CTRL, right, resizeactive, 20 0"
+    "$mod CTRL, up, resizeactive, 0 -20"
+    "$mod CTRL, down, resizeactive, 0 20"
     
     "$mod, 1, workspace,  1"
     "$mod, 2, workspace,  2"
@@ -51,6 +57,10 @@
     "$mod, l, movefocus, r"
     "$mod, k, movefocus, u"
     "$mod, j, movefocus, d"
+    "$mod, left, movefocus, l"
+    "$mod, right, movefocus, r"
+    "$mod, up, movefocus, u"
+    "$mod, down, movefocus, d"
 
     "$mod, mouse_down, workspace, e-1"
     "$mod, mouse_up, workspace, e+1"

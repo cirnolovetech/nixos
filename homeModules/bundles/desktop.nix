@@ -113,7 +113,7 @@
  
  programs.yazi = {
   enable = true;
-  enableZshIntegration = true;
+  enableZshIntegration = true;  
   theme = {
    status = {
     separator_open = "█";
