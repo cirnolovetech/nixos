@@ -33,7 +33,7 @@ window#waybar.hidden {
 #workspaces button {
   padding: 0 5px;
   background-color: transparent;
-  color: #81a1c1;
+  color: #7cafc2;
 }
 
 #workspaces button.active label {
