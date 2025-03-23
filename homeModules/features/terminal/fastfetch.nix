@@ -21,12 +21,11 @@
 
     modules = [
      "break"
-     "break"
      {
       type = "title";
+      format = "Cirno";
       keyWidth = 10;
      }
-     "break"
      {
       type = "os";
       key = " ";
@@ -63,8 +62,6 @@
       key = "󰥔 ";
       keyColor = "blue"; 
      }
-     "break"
-     "colors"
      "break"
      "break"
     ];
