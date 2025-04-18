@@ -27,7 +27,7 @@
  home = {
   username = user;
   homeDirectory = "/home/${user}";
-  stateVersion = homeStateVersion
+  stateVersion = homeStateVersion;
  };
 
 }
