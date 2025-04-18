@@ -1,4 +1,4 @@
-{ user, homeStateVersion, pkgs, ... }:
+{ pkgs, ... }:
 
 {
  
@@ -25,9 +25,9 @@
  programs.home-manager.enable = true;
  nixpkgs.config.allowUnfree = true;
  home = {
-  username = user;
-  homeDirectory = "/home/${user}";
-  stateVersion = homeStateVersion;
+  username = "cirno";
+  homeDirectory = "/home/cirno";
+  stateVersion = "24.11";
  };
 
 }
