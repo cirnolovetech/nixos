@@ -8,7 +8,7 @@
    url = "github:nix-community/home-manager";
    inputs.nixpkgs.follows = "nixpkgs";
   };
-  
+
   stylix = {
    url = "github:danth/stylix/release-24.11";
    inputs.nixpkgs.follows = "nixpkgs";
@@ -22,7 +22,6 @@
   user = "cirno";
   hosts = [
    { hostname = "amd-laptop"; stateVersion = "24.11"; }
-   #{ hostname = "t420"; stateVersion = "24.11"; }
   ];
 
   makeSystem = { hostname, stateVersion }: nixpkgs.lib.nixosSystem {
@@ -31,7 +30,7 @@
     inherit inputs stateVersion hostname user;
    };
    modules = [
-    ./hosts/${hostname}/configuration.nix
+    ./hosts/${hostname}/config.nix
    ];
   };
  in

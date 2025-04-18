@@ -1,0 +1,57 @@
+* {
+  border: none;
+  font-family: "JetBrains Mono";
+  font-weight: bold;
+  font-size: 13px;
+}
+
+#window {
+ padding: 8px;
+}
+
+window#waybar {  
+  background: #181818;
+  border-top: 8px transparent;
+  border-radius: 10px;
+  transition-property: background-color;
+  transition-duration: .5s;
+  margin: 15px 15px;
+}  
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+.modules-right {
+    margin-right: 2px;
+}
+
+#workspaces {
+    margin: 0 4px;
+}
+
+#workspaces button {
+  padding: 0 5px;
+  background-color: transparent;
+  color: #7cafc2;
+}
+
+#workspaces button.active label {
+  color: #7cafc2;
+}
+
+#custom-distro {
+  color: #7cafc2;
+  font-size: 18px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+#clock, #battery, #pulseaudio, #tray {
+  background-color: #7cafc2;
+  padding: 4px 4px;
+  margin: 4px 2px;
+  border-radius: 5px;
+  color: #181818;
+}
+
