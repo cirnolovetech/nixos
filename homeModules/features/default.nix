@@ -7,6 +7,7 @@
   ./wayland
   ./brave.nix
   ./fastfetch.nix
+  ./kitty.nix
   ./neovim.nix
   ./librewolf.nix
   ./xdg.nix
