@@ -52,6 +52,7 @@
   targets = { 
    waybar.enable = false;
    rofi.enable = false;
+   fcitx5.enable = false;
   };
  };
 

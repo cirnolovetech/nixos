@@ -5,22 +5,21 @@
  imports = [
   ./stylix
   ./wayland
-  ./brave.nix
+  ./chromium.nix
   ./fastfetch.nix
+  ./gecko.nix
   ./kitty.nix
   ./neovim.nix
-  ./librewolf.nix
   ./xdg.nix
   ./zsh.nix
  ];
 
  home.packages = with pkgs; [
-  cava cmatrix cbonsai asciiquarium
+  cava cmatrix cbonsai
   ventoy-full eza bat file-roller
   binutils cpio libarchive gnutar
   bzip3 gzip lrzip lz4 lzip lzop
-  p7zip dar tarlz unar lhasa unzip 
-  gnome-disk-utility gparted
+  p7zip dar tarlz unar lhasa unzip
  ];
 
 }
