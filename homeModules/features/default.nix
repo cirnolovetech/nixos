@@ -15,10 +15,8 @@
 
  home.packages = with pkgs; [
   cava cmatrix cbonsai
-  ventoy-full eza bat file-roller
-  binutils cpio libarchive gnutar
-  bzip3 gzip lrzip lz4 lzip lzop
-  p7zip dar tarlz unar lhasa unzip
+  ventoy-full file-roller
+  p7zip unar unzip
  ];
 
 }
