@@ -29,7 +29,6 @@
   libreoffice
   obs-studio 
   font-manager
-  monero-gui
   tor-browser
   vesktop
   protonvpn-gui
