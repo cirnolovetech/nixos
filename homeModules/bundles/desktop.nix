@@ -29,6 +29,7 @@
   libreoffice
   obs-studio 
   font-manager
+  networkmanagerapplet
   tor-browser
   vesktop
   protonvpn-gui
