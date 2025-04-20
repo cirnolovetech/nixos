@@ -7,7 +7,6 @@
   ./wayland
   ./chromium.nix
   ./fastfetch.nix
-  ./gecko.nix
   ./kitty.nix
   ./neovim.nix
   ./xdg.nix
