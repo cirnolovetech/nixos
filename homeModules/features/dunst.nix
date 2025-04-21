@@ -8,10 +8,10 @@
    global = {
     width = 400;
     height = 300;
-    offset = "10x30";
-    origin = "top-right";
+    icon_corners = "none";
+    font = "JetBrains Mono 8";
+    origin = "top-center";
     frame_color = "#eeeeee";
-    font = "JetBrains Mono";
    };
 
    urgency_normal = {

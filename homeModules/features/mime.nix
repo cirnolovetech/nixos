@@ -2,7 +2,7 @@
 
  let
   defaultApps = {
-   browser = ["librewolf.desktop"];
+   browser = ["brave.desktop"];
    text = ["neovim.desktop"];
    image = ["imv.desktop"];
    audio = ["mpv.desktop"];

@@ -43,8 +43,8 @@
    general = {
     layout = "master";
     gaps_in = 5;
-    gaps_out = 10;
-    border_size = 2;
+    gaps_out = 5;
+    border_size = 3;
     allow_tearing = false;
     "col.active_border" = "rgb(eeeeee)";
     "col.inactive_border" = "rgb(1a1a1a)";

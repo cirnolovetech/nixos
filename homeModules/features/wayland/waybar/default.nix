@@ -9,7 +9,7 @@
    top_bar = {
     modules-left = ["hyprland/workspaces"];
     modules-right = ["tray" "clock" "pulseaudio" "battery"];
-    
+
     "clock" = {
      tooltip = false;
      format = " {:%H:%M} ";
@@ -36,7 +36,7 @@
     };
 
     "tray" = {
-     icon-size = 16;
+     icon-size = 15;
      spacing = 5;
     };
 
