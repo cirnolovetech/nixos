@@ -69,6 +69,7 @@
    hyprland.enable = false;
    waybar.enable = false;
    rofi.enable = false;
+   dunst.enable = false;
    fcitx5.enable = false;
   };
  };

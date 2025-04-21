@@ -4,6 +4,7 @@
 
  imports = [
   ./wayland
+  ./dunst.nix
   ./fetch.nix
   ./kitty.nix
   ./mime.nix
