@@ -2,7 +2,7 @@
 
  let
   defaultApps = {
-   browser = ["brave.desktop"];
+   browser = ["brave-browser.desktop"];
    text = ["neovim.desktop"];
    image = ["imv.desktop"];
    audio = ["mpv.desktop"];
@@ -48,7 +48,9 @@
    ];
    directory = ["inode/directory"];
    browser = [
+    "application/xhtml+xml"
     "text/html"
+    "text/htmlh"
     "x-scheme-handler/about"
     "x-scheme-handler/http"
     "x-scheme-handler/https"
