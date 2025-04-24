@@ -4,6 +4,7 @@
 
  imports = [
   ./bundles
+  ./features
   inputs.home-manager.nixosModules.default
  ];
 

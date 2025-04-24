@@ -3,7 +3,7 @@
 
  inputs = {
   nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
+  
   home-manager = {
    url = "github:nix-community/home-manager";
    inputs.nixpkgs.follows = "nixpkgs";
@@ -13,6 +13,9 @@
    url = "github:danth/stylix/release-24.11";
    inputs.nixpkgs.follows = "nixpkgs";
   };
+
+  hyprland.url = "github:hyprwm/Hyprland";
+
  };
 
  outputs = {self, nixpkgs, home-manager, ...} @ inputs: 
@@ -48,7 +51,7 @@
     inherit inputs homeStateVersion user;
    };
    modules = [
-    ./homeModules
+    ./homeModules/default.nix
    ];
   };
  };

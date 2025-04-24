@@ -12,12 +12,16 @@
  wayland.windowManager.hyprland = {
   enable = true;
   systemd.enable = false;
-  settings = { 
-   monitor = "eDP-1, 1920x1080@144, 0x0, 1.25";
-  
+  extraConfig = 
+   ''
+    source = ./monitors.conf
+    source = ./workspaces.conf
+
+   '';
+  settings = {
    "$terminal" = "kitty";
    "$mod" = "SUPER";  
-   
+    
    exec-once = [
     "waybar"
     "fcitx5"
@@ -94,13 +98,10 @@
  };
 
  home.packages = with pkgs; [
-  xclip
-  wl-clipboard 
-  hyprshot
-  hyprpicker
-  pwvucontrol
-  libnotify
-  brightnessctl
+  xclip wl-clipboard 
+  hyprshot hyprpicker
+  nwg-displays pwvucontrol
+  libnotify brightnessctl
  ];
 
 }

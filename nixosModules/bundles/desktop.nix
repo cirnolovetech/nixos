@@ -39,11 +39,12 @@
   fcitx5 = {
    waylandFrontend = true;
    addons = with pkgs; [
-    kdePackages.fcitx5-qt
+    fcitx5-gtk
     fcitx5-bamboo
+    fcitx5-unikey
    ];
   };
- }; 
+ };
 
  environment.systemPackages = with pkgs; [ sddm-astronaut ];
  services.displayManager.sddm = {
