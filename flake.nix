@@ -1,5 +1,5 @@
 {
- description = "Cirno magic flake";
+ description = "Cirno Flake";
 
  inputs = {
   nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -15,10 +15,9 @@
   };
 
   hyprland.url = "github:hyprwm/Hyprland";
-
  };
 
- outputs = {self, nixpkgs, home-manager, ...} @ inputs: 
+ outputs = { self, nixpkgs, home-manager, ... } @ inputs: 
  let
   system = "x86_64-linux";
   homeStateVersion = "24.11";
@@ -33,10 +32,11 @@
     inherit inputs stateVersion hostname user;
    };
    modules = [
-    ./hosts/${hostname}/config.nix
+    ./Hosts/${hostname}/Config.nix
    ];
   };
  in
+
  {
   nixosConfigurations = nixpkgs.lib.foldl' (configs: host:
    configs // {
@@ -51,7 +51,7 @@
     inherit inputs homeStateVersion user;
    };
    modules = [
-    ./homeModules/default.nix
+    ./HomeModules
    ];
   };
  };
