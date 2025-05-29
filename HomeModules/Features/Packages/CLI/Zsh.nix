@@ -24,9 +24,11 @@
      sga = "sudo git add";
      sgc = "sudo git commit";
      sgp = "sudo git push";
+     f = "yazi";
+     sf = "sudo yazi";
     };
 
-  history.size = 100;
+  history.size = 50;
   oh-my-zsh = {
    enable = true;
    plugins = [ "git" "sudo" ];

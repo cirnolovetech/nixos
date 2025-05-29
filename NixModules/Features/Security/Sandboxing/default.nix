@@ -1,6 +1,6 @@
 {
  imports = [
   ./AppArmor.nix
-  ./Firejail.nix
+  ./Flatpak.nix
  ];
 }

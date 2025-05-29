@@ -2,7 +2,7 @@
 
  let
   defaultApps = {
-   browser = ["brave-browser.desktop"];
+   browser = ["com.brave.Browser.desktop"];
    text = ["neovim.desktop"];
    image = ["imv.desktop"];
    audio = ["mpv.desktop"];
@@ -13,7 +13,6 @@
    terminal = ["kitty.desktop"];
    discord = ["vesktop.desktop"];
   };
-
   mimeMap = {
    text = ["text/plain"];
    image = [
@@ -73,9 +72,8 @@
    terminal = ["terminal"];
    discord = ["x-scheme-handler/discord"];
   };
-
   associations = with lib;
-    listToAttrs (flatten (mapAttrsToList (key: map (type: attrsets.nameValuePair type defaultApps."${key}")) mimeMap));
+   listToAttrs (flatten (mapAttrsToList (key: map (type: attrsets.nameValuePair type defaultApps."${key}")) mimeMap));
  in
 
 {
@@ -96,9 +94,9 @@
 
  home.packages = with pkgs; [ 
   libreoffice font-manager
-  tor-browser signal-desktop
-  xclip wl-clipboard 
+  tor-browser wl-clipboard 
   hyprshot hyprpicker
+  networkmanagerapplet
   nwg-displays pwvucontrol
   libnotify brightnessctl
  ];

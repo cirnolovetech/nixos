@@ -17,12 +17,34 @@
   playerctld.enable = true;
  };
 
- environment.systemPackages = with pkgs; [
-  networkmanagerapplet
-  
-  tor-browser
+ i18n.inputMethod = {
+  type = "fcitx5";
+  enable = true;
+  fcitx5 = {
+   waylandFrontend = true;
+   addons = with pkgs; [
+    fcitx5-gtk
+    fcitx5-bamboo
+    fcitx5-unikey
+   ];
+  };
+ };
 
-  signal-desktop
+ programs = {
+  yazi = {
+   enable = true;
+  };
+  thunar = {
+   enable = true;
+   plugins = with pkgs.xfce; [ 
+    thunar-volman
+    thunar-archive-plugin
+   ];
+  };
+ };
+
+ environment.systemPackages = with pkgs; [
+  udiskie
  ];
 
  environment.sessionVariables.NIXOS_OZONE_WL = "1";

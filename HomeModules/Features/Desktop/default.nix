@@ -1,9 +1,9 @@
 {
  imports = [
-  ./Dunst
-  ./Hyprland
-  ./Rofi
-  ./Waybar
-  ./Stylix.nix
+  ./dunst
+  ./hyprland
+  ./rofi
+  ./waybar
+  ./stylix.nix
  ];
 }

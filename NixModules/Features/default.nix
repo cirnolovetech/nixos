@@ -1,7 +1,6 @@
 { 
  imports = [
   ./Desktop
-  ./Packages
   ./Security
  ];
 }

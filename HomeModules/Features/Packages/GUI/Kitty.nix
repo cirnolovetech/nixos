@@ -1,7 +1,6 @@
 { pkgs, ... }:
 
 {
-
  programs.kitty = {
   enable = true;
   settings = {
@@ -11,5 +10,4 @@
    mouse_hide_wait = "-1.0";
   };
  };
-
 }

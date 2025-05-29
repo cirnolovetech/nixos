@@ -1,5 +1,5 @@
 {
  imports = [
-  ./Kitty.nix
+  ./Localsend.nix
  ];
 }

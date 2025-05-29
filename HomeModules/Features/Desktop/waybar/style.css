@@ -1,0 +1,24 @@
+*{
+  font-family: "JetBrains Mono Nerd Font";
+  font-weight: bold;
+  font-size: 15px;
+}
+
+window#waybar{
+ background: #0f0f0f;  
+}
+
+#tray {
+  margin: 1px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 0px 2px;
+  color: #f0f0f0;
+}
+#battery, #wireplumber, #clock {
+  margin: 1px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 0px 7px;
+  color: #f0f0f0;
+}
