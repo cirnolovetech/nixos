@@ -22,7 +22,7 @@
    size = 24;
   };
   
-  image = ./wallpaper.jpg;
+  image = ./Wallpaper.jpg;
 
   fonts = {
    emoji = {
